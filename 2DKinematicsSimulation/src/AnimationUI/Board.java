@@ -19,9 +19,9 @@ public class Board extends JPanel {
 	private static final int actualWidth = 1630;
 	private static final int ballRadius = 15; //this is also the part that'll add onto the initial position of ball
 	private static final int meterToPixel = 100; //the ratio between actual meter and pixel in this project
-	private static final double veloError = 1;
+	private static final double veloError = 0.5 * meterToPixel;
 	
-	private static final double updateTime = 0.02; //10 ms
+	private static final double updateTime = 0.015; //15 ms
 	
 	//limits
 	private static final int limitL = 0, limitR = actualWidth - 2 * ballRadius; //left and right limit
@@ -77,7 +77,7 @@ public class Board extends JPanel {
 		
 		//create timer
 		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(new ScheduleTask(), 1000, 20); //display after first second, and update every 50 ms
+		timer.scheduleAtFixedRate(new ScheduleTask(), 1000, 15); //display after first second, and update every 15 ms
 	}
 	
 	/**
